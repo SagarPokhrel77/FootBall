@@ -1,0 +1,230 @@
+:root {
+    --azul-principal: rgb(14, 123, 170);
+    --azul-secundario: rgb(28, 141, 184);
+}
+
+/* ================= BASE ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background: var(--azul-principal);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 200px;
+    background: white;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    background: var(--azul-secundario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background: var(--azul-principal);
+}
+
+/* ================= CONTENT ================= */
+.content {
+    flex: 1;
+    padding: 30px;
+    max-width: calc(100% - 40px);
+}
+
+/* ================= CARD ================= */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    margin-right: 10px;
+}
+
+/* ================= TABLE ================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: var(--azul-secundario);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f1f7fb;
+}
+
+/* ================= IMAGES ================= */
+img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ================= BUTTONS ================= */
+button {
+    cursor: pointer;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-right: 5px;
+}
+
+/* ================= MODALS ================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* ================= MODAL CONTENT (FIX PRO) ================= */
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    width: 360px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    animation: pop 0.25s ease;
+}
+
+/* ANIMACIÓN */
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= TITULO ================= */
+.modal-content h3 {
+    margin-bottom: 18px;
+    font-size: 20px;
+    color: var(--azul-principal);
+}
+
+/* ================= INPUTS ================= */
+.modal-content input {
+    width: 100%;
+    padding: 7px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fafafa;
+    outline: none;
+}
+
+.modal-content input:focus {
+    border-color: var(--azul-secundario);
+    background: white;
+    box-shadow: 0 0 6px rgba(28, 141, 184, 0.3);
+}
+
+/* ================= BOTÓN PRINCIPAL ================= */
+.modal-content button[name="add"],
+.modal-content button[name="update"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    background: linear-gradient(135deg,
+            var(--azul-secundario),
+            var(--azul-principal));
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.modal-content button[name="add"]:hover,
+.modal-content button[name="update"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= BOTÓN CERRAR ================= */
+.modal-content button:last-child {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #e0e0e0;
+    color: #333;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.modal-content button:last-child:hover {
+    background: #ccc;
+}
+
+/* ================= DELETE BUTTON ================= */
+.danger {
+    background: #e74c3c !important;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
